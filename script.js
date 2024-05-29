@@ -30,6 +30,23 @@ document.addEventListener("DOMContentLoaded", function() {
         math: true  // Enable KaTeX support
     });
 
+    // Listen for input events on the main textarea
+    textarea.addEventListener("input", function() {
+        // Convert the textarea value to Markdown using marked
+        const markdownContent = marked.parse(textarea.value);
+        // Update the div content with the rendered Markdown
+        div.innerHTML = markdownContent;
+        // Render any KaTeX math expressions in the div
+        renderMathInElement(div, {delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ]});
+        // Render Mermaid diagrams
+        mermaid.init(undefined, div.querySelectorAll('.mermaid'));
+    });
+
     // Override the tokenizer to handle Mermaid code blocks enclosed in %%%
     const tokenizer = {
         fences(src) {
@@ -67,27 +84,26 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
+    const tokenizer3 = {
+        fences(src) {
+            // Regular expression to match text enclosed in double hashtags
+            const match1 = src.match(/^##([^#\n]+)##/);
+            if (match1) {
+                // Preserve newlines by wrapping code in <pre> without escaping
+                const code = match1[1].trim().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '&#10;');
+                return {
+                    type: 'html',
+                    raw: match1[0],
+                    text: `<div class="hashtag">${code}</div>`
+                };
+            }
+            return false;
+        }
+    };
+    
     // Extend marked tokenizer
-    const originalTokenizer2 = { ...marked.Lexer.prototype.tokenizer };
-    marked.use({ tokenizer: { ...originalTokenizer2, ...tokenizer2 } });
-
-
-    // Listen for input events on the main textarea
-    textarea.addEventListener("input", function() {
-        // Convert the textarea value to Markdown using marked
-        const markdownContent = marked.parse(textarea.value);
-        // Update the div content with the rendered Markdown
-        div.innerHTML = markdownContent;
-        // Render any KaTeX math expressions in the div
-        renderMathInElement(div, {delimiters: [
-            {left: "$$", right: "$$", display: true},
-            {left: "\\[", right: "\\]", display: true},
-            {left: "$", right: "$", display: false},
-            {left: "\\(", right: "\\)", display: false}
-        ]});
-        // Render Mermaid diagrams
-        mermaid.init(undefined, div.querySelectorAll('.mermaid'));
-    });
+    const originalTokenizer3 = { ...marked.Lexer.prototype.tokenizer };
+    marked.use({ tokenizer: { ...originalTokenizer3, ...tokenizer3 } });
 
     // Listen for click events on the download button
     downloadBtn.addEventListener("click", function() {

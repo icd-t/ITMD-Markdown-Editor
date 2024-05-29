@@ -175,6 +175,11 @@ a{
     padding: 3px;
 }
 
+.buttonLink{
+    border: none;
+    padding: none;
+}
+
 img{
     border: solid;
     border-color: #4C566A;
@@ -245,4 +250,29 @@ td {
 .icon{
     display: inline-block;
     color: #EBCB8B;
+}
+
+.hashtag{
+    text-decoration: none;
+    color: #BF616A;
+    border: solid;
+    border-color: #BF616A;
+    border-width: 2px;
+    border-radius: 10px;
+
+    padding: 3px;
+    width: auto;
+    display: inline;
+}
+
+hr {
+    background-color:#4C566A;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    
+    height: 3px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: block;
 }

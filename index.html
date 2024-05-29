@@ -32,6 +32,7 @@
         <button id="import" type="button">Import</button>
         <input type="file" id="fileInput" accept=".md" style="display: none;">
         <button id="info" type="button" onclick="showInfo()">Functions</button>
+        <a href="https://github.com/icd-t/ITMD-Markdown-Editor" target="_blank" class="buttonLink"><button>GitHub</button></a>
     </div>
 
     <dialog id="infoModal">
@@ -162,9 +163,15 @@
                     <tr>
                         <th>Element</th>
                         <th>Syntax</th>
+                        <th>Requirements</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td>Tag</td>
+                        <td>##Tag##</td>
+                        <td>Be on a new line</td>
+                    </tr>
                     <tr>
                         <td>KaTeX Block Equation</td>
                         <td>(Two dollar signs) code (Two dollar signs)</td>
@@ -179,7 +186,8 @@
                     </tr>
                     <tr>
                         <td>Icon</td>
-                        <td>::fa-catagory fa-icon::</td>
+                        <td>::fa-catagory fa-icon:: or &lt;i class="fa-catagory fa-icon fa-xl icon"&gt;&lt;/i&gt;</td>
+                        <td>Be on a new line</td>
                     </tr>
                 </tbody>
             </table>
@@ -187,6 +195,9 @@
             The icons are derived from the Font Awesome set. To use them make sure they are on a new line, and input the icon code into the colons. Additionally, you can also directly use the html code without the colons. All documentation and guides for additional functions can be found here:
             <br><br>
             <a href="https://katex.org/docs/supported.html">KaTeX</a> <a href="https://mermaid.js.org/syntax/flowchart.html">Mermaid</a> <a href="https://fontawesome.com/icons">Font Awesome</a>
+            <h2>HTML Support</h2>
+
+            In addition to all of the features above, you can code directly in HTML. Although, some styles may be overided such as text color. If you wanted to know how to use one of the special elements above, use its default syntax in the editor, and then inspect element it in your browser.
         </div>
     </dialog>
 
