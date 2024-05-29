@@ -19,17 +19,20 @@
         window.mermaid = mermaid;
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="top">
         <h1><i class="fa-brands fa-markdown"></i> ITMD Editor</h1>
-        A markdown editor with several unique features.
+        Markdown note taker with HTML support and more.
+        <br>
+        Version 2.2 - iframe Embeds Support
     </div>
 
     <div class="toolbar">
-        <textarea id="name" name="NameBox" class="name" rows="1" cols="40" placeholder="Document Name..."></textarea>
-        <button id="export" type="button">Export</button>
-        <button id="import" type="button">Import</button>
+        <textarea id="name" name="NameBox" class="name" rows="1" cols="70" placeholder="Document Name..."></textarea>
+        <button id="export" type="button">Export .md</button>
+        <button id="import" type="button">Import .md</button>
         <input type="file" id="fileInput" accept=".md" style="display: none;">
         <button id="info" type="button" onclick="showInfo()">Functions</button>
         <a href="https://github.com/icd-t/ITMD-Markdown-Editor" target="_blank" class="buttonLink"><button>GitHub</button></a>
@@ -42,7 +45,7 @@
             <br>
             ITMD Editor was built using the Github flavor of the markdown rich text formatting. Along with this, I have added some extra features such as KaTeX math equations and Mermaid Charts. Below is a list of functions for everything you can do in this editor.
             
-            <h2>Standard Rich Text</h2>
+            <h2>Standard Markdown</h2>
             <table>
                 <thead>
                     <tr>
@@ -95,10 +98,14 @@
                         <td>Super Script</td>
                         <td>&lt;sup&gt; Super Script &lt;/sup&gt;</td>
                     </tr>
+                    <tr>
+                        <td>Text Divider</td>
+                        <td>---</td>
+                    </tr>
                 </tbody>
             </table>
 
-            <h2>Advanced Rich Text</h2>
+            <h2>Advanced Markdown</h2>
 
             <table>
                 <thead>
@@ -198,12 +205,36 @@
             <h2>HTML Support</h2>
 
             In addition to all of the features above, you can code directly in HTML. Although, some styles may be overided such as text color. If you wanted to know how to use one of the special elements above, use its default syntax in the editor, and then inspect element it in your browser.
+
+            <h2>Embeds</h2>
+
+            Becuase this editor supports HTML, you can add <em><strong>some</strong></em> iframe embeds to your file. Simply copy and paste the embed HTML code into your file, and it should automatically update. Example:
+            <br><br>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Syntax</th>
+                        <th>Output</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=JAaXyox4kMjvtVzc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;</td>
+                        <td><iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=JAaXyox4kMjvtVzc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+                    </tr>
+                    <tr>
+                        <td>&lt;iframe src="https://archive.org/embed/DukeNukem" width="560" height="384" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen&gt;&lt;/iframe/&gt;td>
+                        <td><iframe src="https://archive.org/embed/DukeNukem" width="560" height="384" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </dialog>
 
     <div class="main">
         <textarea id="editor" name="editor" class="editor" cols="70" placeholder="Start Typing..."></textarea>
-        <div id="render" class="render"></div>
+        <div id="render" class="render">Edit or import file to render...</div>
     </div>
 
     <script src="script.js"></script>
