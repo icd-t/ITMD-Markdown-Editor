@@ -13,24 +13,188 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.mermaid = mermaid;
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.css">
 </head>
 <body>
     <div class="top">
-        <h1>ITMD Editor</h1>
-        The simple markdown text editor.
+        <h1><i class="fa-brands fa-markdown"></i> ITMD Editor</h1>
+        A markdown editor with several unique features.
     </div>
 
     <div class="toolbar">
-        <textarea id="name" name="NameBox" class="name" rows="1" cols="40" placeholder="Document Name">My Document</textarea>
+        <textarea id="name" name="NameBox" class="name" rows="1" cols="40" placeholder="Document Name..."></textarea>
         <button id="export" type="button">Export</button>
         <button id="import" type="button">Import</button>
         <input type="file" id="fileInput" accept=".md" style="display: none;">
+        <button id="info" type="button" onclick="showInfo()">Functions</button>
     </div>
 
+    <dialog id="infoModal">
+        <div class="wrapper">
+
+            <h1>Function Cheat Sheet</h1>
+            <br>
+            ITMD Editor was built using the Github flavor of the markdown rich text formatting. Along with this, I have added some extra features such as KaTeX math equations and Mermaid Charts. Below is a list of functions for everything you can do in this editor.
+            
+            <h2>Standard Rich Text</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Syntax</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Heading 1</td>
+                        <td># H1</td>
+                    </tr>
+                    <tr>
+                        <td>Heading 2</td>
+                        <td>## H2</td>
+                    </tr>
+                    <tr>
+                        <td>Heading 3</td>
+                        <td>### H3</td>
+                    </tr>
+                    <tr>
+                        <td>Italics</td>
+                        <td>*Italics* or _Italics_</td>
+                    </tr>
+                    <tr>
+                        <td>Bold</td>
+                        <td>**Bold** or __Bold__</td>
+                    </tr>
+                    <tr>
+                        <td>Bold and Italics</td>
+                        <td>***Bold and Italics***</td>
+                    </tr>
+                    <tr>
+                        <td>Strike Through</td>
+                        <td>~~Strike~~</td>
+                    </tr>
+                    <tr>
+                        <td>List</td>
+                        <td>- List Item</td>
+                    </tr>
+                    <tr>
+                        <td>Nested List Item</td>
+                        <td>&nbsp;&nbsp;- List Item</td>
+                    </tr>
+                    <tr>
+                        <td>Sub Script</td>
+                        <td>&lt;sub&gt; Sub Script &lt;/sub&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>Super Script</td>
+                        <td>&lt;sup&gt; Super Script &lt;/sup&gt;</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Advanced Rich Text</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Syntax</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Inline Code</td>
+                        <td>`Code`</td>
+                    </tr>
+                    <tr>
+                        <td>Quote Block</td>
+                        <td>> Quote</td>
+                    </tr>
+                    <tr>
+                        <td>Un-Checked Box</td>
+                        <td>- [ ] Unchecked</td>
+                    </tr>
+                    <tr>
+                        <td>Checked Box</td>
+                        <td>- [x] Checked</td>
+                    </tr>
+                    <tr>
+                        <td>Hyperlink</td>
+                        <td>[link text](hyperlink)</td>
+                    </tr>
+                    <tr>
+                        <td>Image</td>
+                        <td>![alt text](image link)</td>
+                    </tr>
+                    <tr>
+                        <td>Footnote (Used with next item)</td>
+                        <td>Text[^1]</td>
+                    </tr>
+                    <tr>
+                        <td>Footnote Link</td>
+                        <td>[^1]: hyperlink</td>
+                    </tr>
+                    <tr>
+                        <td>Comment</td>
+                        <td>&lt;!-- Comment --&gt;</td>
+                    </tr>
+
+                    <tr>
+                        <td>Collapsed Section</td>
+                        <td>&lt;details&gt; &lt;summary&gt; Title &lt;/summary&gt; Content &lt;/details&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>Table</td>
+                        <td>| Colomn 1 Header | Colomn 2 Header | <br> | - | - | <br> | Item 1 | Item 2 |</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Special Functions</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Syntax</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>KaTeX Block Equation</td>
+                        <td>(Two dollar signs) code (Two dollar signs)</td>
+                    </tr>
+                    <tr>
+                        <td>KaTeX Inline Equation</td>
+                        <td>(One dollar sign) code (One dollar sign)</td>
+                    </tr>
+                    <tr>
+                        <td>Mermaid Chart</td>
+                        <td>%%%<br>code<br>%%%</td>
+                    </tr>
+                    <tr>
+                        <td>Icon</td>
+                        <td>::fa-catagory fa-icon::</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            The icons are derived from the Font Awesome set. To use them make sure they are on a new line, and input the icon code into the colons. Additionally, you can also directly use the html code without the colons. All documentation and guides for additional functions can be found here:
+            <br><br>
+            <a href="https://katex.org/docs/supported.html">KaTeX</a> <a href="https://mermaid.js.org/syntax/flowchart.html">Mermaid</a> <a href="https://fontawesome.com/icons">Font Awesome</a>
+        </div>
+    </dialog>
+
     <div class="main">
-        <textarea id="editor" name="editor" class="editor" rows="10000" cols="70" placeholder="Start Typing..."></textarea>
+        <textarea id="editor" name="editor" class="editor" cols="70" placeholder="Start Typing..."></textarea>
         <div id="render" class="render"></div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

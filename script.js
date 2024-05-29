@@ -1,3 +1,18 @@
+// Handle info
+const info = document.getElementById("infoModal");
+const wrapper = document.querySelector(".wrapper");
+function showInfo(){
+    info.showModal()
+}
+function hideInfo(){
+    info.close()
+}
+info.addEventListener("click", (e) => {
+    if(!wrapper.contains(e.target)){
+        info.close()
+    }
+})
+
 document.addEventListener("DOMContentLoaded", function() {
     const textarea = document.getElementById("editor");
     const div = document.getElementById("render");
@@ -15,6 +30,48 @@ document.addEventListener("DOMContentLoaded", function() {
         math: true  // Enable KaTeX support
     });
 
+    // Override the tokenizer to handle Mermaid code blocks enclosed in %%%
+    const tokenizer = {
+        fences(src) {
+            const match1 = src.match(/^%%%([\s\S]+?)%%%/);
+            if (match1) {
+                // Preserve newlines by wrapping code in <pre> without escaping
+                const code = match1[1].trim().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '&#10;');
+                return {
+                    type: 'html',
+                    raw: match1[0],
+                    text: `<pre class="mermaid">${code}</pre>`
+                };
+            }
+            return false;
+        }
+    };
+
+    // Extend marked tokenizer
+    const originalTokenizer = { ...marked.Lexer.prototype.tokenizer };
+    marked.use({ tokenizer: { ...originalTokenizer, ...tokenizer } });
+
+    const tokenizer2 = {
+        fences(src) {
+            const match1 = src.match(/^\::+([^\$\n]+?)\::+/);
+            if (match1) {
+                // Preserve newlines by wrapping code in <pre> without escaping
+                const code = match1[1].trim().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '&#10;');
+                return {
+                    type: 'html',
+                    raw: match1[0],
+                    text: `<i class="${code} fa-xl icon"></i>`
+                };
+            }
+            return false;
+        }
+    };
+
+    // Extend marked tokenizer
+    const originalTokenizer2 = { ...marked.Lexer.prototype.tokenizer };
+    marked.use({ tokenizer: { ...originalTokenizer2, ...tokenizer2 } });
+
+
     // Listen for input events on the main textarea
     textarea.addEventListener("input", function() {
         // Convert the textarea value to Markdown using marked
@@ -28,6 +85,8 @@ document.addEventListener("DOMContentLoaded", function() {
             {left: "$", right: "$", display: false},
             {left: "\\(", right: "\\)", display: false}
         ]});
+        // Render Mermaid diagrams
+        mermaid.init(undefined, div.querySelectorAll('.mermaid'));
     });
 
     // Listen for click events on the download button
@@ -69,6 +128,11 @@ document.addEventListener("DOMContentLoaded", function() {
             reader.readAsText(file);
         }
     });
+
+    textarea.addEventListener('input', () => {
+      textarea.style.height = 'auto'; // Reset height to auto
+       textarea.style.height = `${textarea.scrollHeight}px`; // Set height to the scroll height of content
+      });
 });
 
 function closeHandler(e) {
