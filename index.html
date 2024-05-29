@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITMD Editor</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="markdown.png">
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<body>
+    <div class="top">
+        <h1>ITMD Editor</h1>
+        The simple markdown text editor.
+    </div>
+
+    <div class="toolbar">
+        <textarea id="name" name="NameBox" class="name" rows="1" cols="40" placeholder="Document Name">My Document</textarea>
+        <button id="export" type="button">Export</button>
+        <button id="import" type="button">Import</button>
+        <input type="file" id="fileInput" accept=".md" style="display: none;">
+    </div>
+
+    <div class="main">
+        <textarea id="editor" name="editor" class="editor" rows="10000" cols="70" placeholder="Start Typing..."></textarea>
+        <div id="render" class="render"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

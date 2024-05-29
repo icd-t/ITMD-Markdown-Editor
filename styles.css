@@ -1,0 +1,195 @@
+body { 
+    background-color: #2E3440;
+    color: #D8DEE9;
+    font-family: "Roboto Mono", "Regular";
+
+    margin: 2%;
+}
+
+::-moz-selection { /* Code for Firefox */
+    color: #2E3440;
+    background: #88C0D0;
+  }
+  
+::selection {
+    color: #2E3440;
+    background: #88C0D0;
+  }
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+h1 {
+    color: #81A1C1;
+    font-weight: 700;
+    
+    margin: 0;
+}
+
+.top {
+    font-size: 20px;
+    background-color: #3B4252;
+    border: solid;
+    border-color: #4C566A;
+    border-width: 2px;
+    border-radius: 10px;
+
+    padding: 30px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    color: #D8DEE9;
+    font-family: "Roboto Mono", "Regular";
+    font-size: 15px;
+    
+    background-color: #3B4252;
+    border: solid;
+    border-color: #4C566A;
+    border-width: 2px;
+    border-radius: 10px;
+
+    padding: 30px;
+    margin-bottom: 10px;
+
+    resize: none;
+    outline: none;
+    vertical-align: middle;
+}
+
+textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.editor {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.name {
+    padding: 10px;
+
+    display: inline-block;
+    vertical-align: middle;
+}
+
+button{
+    color: #D8DEE9;
+    font-family: "Roboto Mono", "Regular";
+    font-size: 15px;
+    
+    background-color: #3B4252;
+    border: solid;
+    border-color: #4C566A;
+    border-width: 2px;
+    border-radius: 10px;
+
+    padding: 10px;
+    margin-bottom: 10px;
+
+    display: inline-block;
+    vertical-align: middle;
+}
+
+button:hover{
+    background-color: #4C566A;
+    cursor:pointer;
+}
+
+.render {
+    color: #D8DEE9;
+    font-family: "Roboto Mono", "Regular";
+    font-size: 15px;
+    
+    background-color: #3B4252;
+    border: solid;
+    border-color: #4C566A;
+    border-width: 2px;
+    border-radius: 10px;
+
+    padding: 30px;
+    width: 650px;
+    height: 100000px;
+    display: inline-block;
+    vertical-align: top;
+
+    word-wrap: break-word;
+}
+
+.container{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+/* The rest of this css file is for marked lib */
+
+
+a{
+    text-decoration: none;
+    color: #BF616A;
+    border: solid;
+    border-color: #BF616A;
+    border-width: 2px;
+    border-radius: 10px;
+
+    padding: 3px;
+}
+
+img{
+    border: solid;
+    border-color: #4C566A;
+    border-width: 2px;
+    border-radius: 10px;
+    width: 600px;
+}
+
+blockquote {
+    background-color: #3B4252;
+    border: solid;
+    border-color: #B48EAD;
+    border-width: 2px;
+    border-radius: 10px;
+
+    padding-left: 15px;
+}
+
+li::marker {
+    content: '● ';
+    color: #A3BE8C;
+}
+
+code {
+    background-color: #2E3440;
+    border: solid;
+    border-color: #4C566A;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+table{
+    background-color: #4C566A;
+    border: solid;
+    border-color: #2E3440;
+    border-width: 2px;
+    border-radius: 10px;
+}
+
+th {
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+}
+
+.katex-display {
+    border: solid;
+    border-color: #4C566A;
+    border-width: 2px;
+    border-radius: 10px;
+
+    padding: 10px;
+}
