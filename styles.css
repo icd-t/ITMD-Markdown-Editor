@@ -14,7 +14,14 @@ body {
 ::selection {
     color: #2E3440;
     background: #88C0D0;
+    border-radius: 10px;
   }
+
+::spelling-error {
+    text-decoration: underline;
+    text-decoration-color: #BF616A;
+    text-decoration-thickness: 2px;
+}
 
 body::-webkit-scrollbar {
     display: none;
@@ -107,6 +114,18 @@ button:hover{
     cursor:pointer;
 }
 
+#topButton {
+    display: none;
+    border-radius: 99px;
+    width: 50px;
+    height: 50px;
+
+    bottom: 10%;
+    right: 5%;
+    position: fixed;
+    z-index: 99;
+}
+
 .render {
     color: #D8DEE9;
     font-family: "Roboto Mono", "Regular";
@@ -145,9 +164,11 @@ dialog {
     width: 50%;
     height: 50%;
     padding: 30px;
-    align-self: center;
+    align-content: top;
 
     outline: none;
+    position: fixed;
+    box-sizing: border-box;
 }
 
 dialog::backdrop {
@@ -198,10 +219,15 @@ blockquote {
     border-radius: 10px;
 
     padding-left: 15px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+ul{
+    margin-left: 0;
 }
 
 li::marker {
-    content: '● ';
     color: #A3BE8C;
 }
 
@@ -263,8 +289,15 @@ td {
     border-radius: 10px;
 
     padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
     width: auto;
     display: inline;
+}
+
+.hashtag::before{
+    content: "# ";
 }
 
 hr {
@@ -285,4 +318,8 @@ iframe {
     border-width: 2px;
     border-radius: 10px;
     width: 600px;
+}
+
+.chackb {
+    display: none;
 }

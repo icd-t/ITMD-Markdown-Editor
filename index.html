@@ -24,15 +24,13 @@
 <body>
     <div class="top">
         <h1><i class="fa-brands fa-markdown"></i> ITMD Editor</h1>
-        Markdown note taker with HTML support and more.
-        <br>
-        Version 2.2 - iframe Embeds Support
+        Markdown note taker with HTML support and more. See <em>Functions</em> for a list of supported features.
     </div>
 
     <div class="toolbar">
         <textarea id="name" name="NameBox" class="name" rows="1" cols="70" placeholder="Document Name..."></textarea>
-        <button id="export" type="button">Export .md</button>
-        <button id="import" type="button">Import .md</button>
+        <button id="export" type="button">Export <i class="fa-brands fa-markdown"></i></button>
+        <button id="import" type="button">Import <i class="fa-brands fa-markdown"></i> <i class="fa-regular fa-file-lines"></i></button>
         <input type="file" id="fileInput" accept=".md" style="display: none;">
         <button id="info" type="button" onclick="showInfo()">Functions</button>
         <a href="https://github.com/icd-t/ITMD-Markdown-Editor" target="_blank" class="buttonLink"><button>GitHub</button></a>
@@ -84,23 +82,23 @@
                     </tr>
                     <tr>
                         <td>List</td>
-                        <td>- List Item</td>
+                        <td>- List Item<br>- List Item</td>
                     </tr>
                     <tr>
                         <td>Nested List Item</td>
-                        <td>&nbsp;&nbsp;- List Item</td>
+                        <td>- List Item <br>&nbsp;&nbsp;- List Item</td>
                     </tr>
                     <tr>
-                        <td>Sub Script</td>
-                        <td>&lt;sub&gt; Sub Script &lt;/sub&gt;</td>
-                    </tr>
-                    <tr>
-                        <td>Super Script</td>
-                        <td>&lt;sup&gt; Super Script &lt;/sup&gt;</td>
+                        <td>Numbered List</td>
+                        <td>1. List Item<br>2. List Item</td>
                     </tr>
                     <tr>
                         <td>Text Divider</td>
                         <td>---</td>
+                    </tr>
+                    <tr>
+                        <td>Line Break</td>
+                        <td>&lt;br&gt;</td>
                     </tr>
                 </tbody>
             </table>
@@ -130,6 +128,14 @@
                     <tr>
                         <td>Checked Box</td>
                         <td>- [x] Checked</td>
+                    </tr>
+                    <tr>
+                        <td>Sub Script</td>
+                        <td>&lt;sub&gt; Sub Script &lt;/sub&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>Super Script</td>
+                        <td>&lt;sup&gt; Super Script &lt;/sup&gt;</td>
                     </tr>
                     <tr>
                         <td>Hyperlink</td>
@@ -208,7 +214,7 @@
 
             <h2>Embeds</h2>
 
-            Becuase this editor supports HTML, you can add <em><strong>some</strong></em> iframe embeds to your file. Simply copy and paste the embed HTML code into your file, and it should automatically update. Example:
+            Becuase this editor supports HTML, you can add <em><strong>some</strong></em> iframe embeds to your file. Simply copy and paste the embed HTML code into your file, and it should automatically update. To do this you just need to use this syntax: <code>&ltiframe src="embed link"&gt;&lt;/iframe&gt;</code>. Example:
             <br><br>
 
             <table>
@@ -236,6 +242,8 @@
         <textarea id="editor" name="editor" class="editor" cols="70" placeholder="Start Typing..."></textarea>
         <div id="render" class="render">Edit or import file to render...</div>
     </div>
+
+    <button onclick="topFunction()" id="topButton" title="Go to top"><i class="fa-solid fa-chevron-up"></i></button>
 
     <script src="script.js"></script>
 </body>
