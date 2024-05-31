@@ -23,6 +23,12 @@ body {
     text-decoration-thickness: 2px;
 }
 
+:focus {
+    outline: none;
+    border-width: 2px;
+    border-color: #EBCB8B;
+}
+
 body::-webkit-scrollbar {
     display: none;
 }
