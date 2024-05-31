@@ -169,38 +169,85 @@
                 </tbody>
             </table>
 
+            <h2>Escape Characters</h2>
+
+            Some characters will e handled differently when rendered. If you want to use a character that will not appear in the renderer, use an escape character.
+            <br><br>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Character</th>
+                        <th>Code</th>
+                        <th>Alternative Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&lt;</td>
+                        <td>&amp;lt;</td>
+                        <td>&amp;#60;</td>
+                    </tr>
+                    <tr>
+                        <td>&gt;</td>
+                        <td>&amp;gt;</td>
+                        <td>&amp;#62;</td>
+                    </tr>
+                    <tr>
+                        <td>Tab</td>
+                        <td>&amp;Tab;</td>
+                        <td>&amp;#32;</td>
+                    </tr>
+                    <tr>
+                        <td>Space</td>
+                        <td>&amp;nbsp;</td>
+                        <td>&amp;#34;</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br><br>
+            Not all HTML escape characters are listed above. If you require another character, please see the full table <a href="https://mateam.net/html-escape-characters/">here</a>.
+
+
             <h2>Special Functions</h2>
+
+            These functions will not work in any other text editor. I belive KaTeX has a strong chance of working, however the rest will not. If you plan on migrating your documents to a new editor, you can check the migration code in the table. Reminder, these features and migration codes will not allways work on other editors.
+            <br><br>
 
             <table>
                 <thead>
                     <tr>
                         <th>Element</th>
                         <th>Syntax</th>
-                        <th>Requirements</th>
+                        <th>Migration Code</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Tag</td>
                         <td>##Tag##</td>
-                        <td>Be on a new line</td>
+                        <td>#Tag</td>
                     </tr>
                     <tr>
                         <td>KaTeX Block Equation</td>
-                        <td>(Two dollar signs) code (Two dollar signs)</td>
+                        <td>&#36; &#36; code &#36;&#36;</td>
+                        <td>&#36; &#36; code &#36;&#36;</td>
                     </tr>
                     <tr>
                         <td>KaTeX Inline Equation</td>
-                        <td>(One dollar sign) code (One dollar sign)</td>
+                        <td>&#36;code&#36;</td>
+                        <td>&#36;code&#36;</td>
                     </tr>
                     <tr>
                         <td>Mermaid Chart</td>
                         <td>%%%<br>code<br>%%%</td>
+                        <td>``` mermaid<br>code<br>```</td>
                     </tr>
                     <tr>
                         <td>Icon</td>
-                        <td>::fa-catagory fa-icon:: or &lt;i class="fa-catagory fa-icon fa-xl icon"&gt;&lt;/i&gt;</td>
-                        <td>Be on a new line</td>
+                        <td>::fa-catagory fa-icon::</td>
+                        <td>FA HTML Code</td>
                     </tr>
                 </tbody>
             </table>

@@ -323,3 +323,27 @@ iframe {
 .chackb {
     display: none;
 }
+
+details{
+    border: solid;
+    border-color: #4C566A;
+    border-width: 2px;
+    border-radius: 10px;
+    width: 600px;
+
+    padding: 10px;
+}
+
+summary::marker{
+    content: "[+] ";
+    color:  #A3BE8C;
+}
+
+details[open] summary::marker{
+    content: "[-] ";
+    color:  #A3BE8C;
+}
+
+summary:hover {
+    cursor: pointer;
+}
