@@ -23,7 +23,7 @@ body {
     text-decoration-thickness: 2px;
 }
 
-:focus {
+:focus-visible {
     outline: none;
     border-width: 2px;
     border-color: #EBCB8B;
