@@ -126,6 +126,24 @@ button:hover{
     z-index: 99;
 }
 
+.info{
+    color: #D8DEE9;
+    font-family: "Roboto Mono", "Regular";
+    font-size: 15px;
+    
+    background-color: #3B4252;
+    border: solid;
+    border-color: #4C566A;
+    border-width: 2px;
+    border-radius: 10px;
+
+    padding: 10px;
+    margin-bottom: 10px;
+
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .render {
     color: #D8DEE9;
     font-family: "Roboto Mono", "Regular";
@@ -154,6 +172,7 @@ button:hover{
 dialog {
     font-size: 15px;
     color: #D8DEE9;
+    line-height: 200%;
 
     background-color: #3B4252;
     border: solid;

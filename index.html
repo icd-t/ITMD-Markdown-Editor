@@ -171,7 +171,7 @@
 
             <h2>Escape Characters</h2>
 
-            Some characters will e handled differently when rendered. If you want to use a character that will not appear in the renderer, use an escape character.
+            Some characters will be handled differently when rendered. If you want to use a character that will not appear in the renderer, use an escape character.
             <br><br>
 
             <table>
@@ -286,9 +286,12 @@
     </dialog>
 
     <div class="main">
-        <textarea id="editor" name="editor" class="editor" cols="70" placeholder="Start Typing..."></textarea>
+        <textarea id="editor" name="editor" class="editor" cols="70" onkeyup="countWords()" onpaste="countWords()" placeholder="Start Typing..."></textarea>
         <div id="render" class="render">Edit or import file to render...</div>
     </div>
+
+    <div class="info">Word count: <div id="wordCounter" style="display: inline-block;">0</div></div>
+    <div class="info">Character count: <div id="charCounter" style="display: inline-block;">0</div></div>
 
     <button onclick="topFunction()" id="topButton" title="Go to top"><i class="fa-solid fa-chevron-up"></i></button>
 

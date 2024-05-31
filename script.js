@@ -146,7 +146,8 @@ document.addEventListener("DOMContentLoaded", function() {
     textarea.addEventListener('input', () => {
       textarea.style.height = 'auto'; // Reset height to auto
        textarea.style.height = `${textarea.scrollHeight}px`; // Set height to the scroll height of content
-      });
+    });
+    
 });
 
 function closeHandler(e) {
@@ -180,4 +181,20 @@ function scrollFunction() {
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+
+// Word and character Counter
+const textField = document.getElementById("editor");
+const wordCount = document.getElementById("wordCounter");
+const charCount = document.getElementById("charCounter");
+
+
+function countWords(){
+    let text = textField.value;
+    text = text.trim();
+    const words = text.split(" ");
+
+    wordCount.innerText = words.length;
+    charCount.innerText = text.length;
 }
