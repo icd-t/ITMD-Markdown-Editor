@@ -1,15 +1,31 @@
 // Handle info
 const info = document.getElementById("infoModal");
-const wrapper = document.querySelector(".wrapper");
+const file = document.getElementById("fileModal");
+const infoWrapper = document.querySelector("#infoModalWrapper");
+const fileWrapper = document.querySelector("#fileModalWrapper");
+
 function showInfo(){
     info.showModal()
 }
 function hideInfo(){
     info.close()
 }
+
+function showFile(){
+    file.showModal()
+}
+function hideFile(){
+    file.close()
+}
+
 info.addEventListener("click", (e) => {
-    if(!wrapper.contains(e.target)){
+    if(!infoWrapper.contains(e.target)){
         info.close()
+    }
+})
+file.addEventListener("click", (e) => {
+    if(!fileWrapper.contains(e.target)){
+        file.close()
     }
 })
 

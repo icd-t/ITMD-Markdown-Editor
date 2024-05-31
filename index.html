@@ -28,16 +28,29 @@
     </div>
 
     <div class="toolbar">
-        <textarea id="name" name="NameBox" class="name" rows="1" cols="70" placeholder="Document Name..."></textarea>
-        <button id="export" type="button">Export <i class="fa-brands fa-markdown"></i></button>
-        <button id="import" type="button">Import <i class="fa-brands fa-markdown"></i> <i class="fa-regular fa-file-lines"></i></button>
-        <input type="file" id="fileInput" accept=".md" style="display: none;">
-        <button id="info" type="button" onclick="showInfo()">Functions</button>
-        <a href="https://github.com/icd-t/ITMD-Markdown-Editor" target="_blank" tabindex="-1" class="buttonLink"><button>GitHub</button></a>
+        <button id="file" type="button" onclick="showFile()"><i class="fa-regular fa-file"></i> Files</button>
+        <button id="info" type="button" onclick="showInfo()"><i class="fa-solid fa-code"></i> Functions</button>
+        <a href="https://github.com/icd-t/ITMD-Markdown-Editor" target="_blank" tabindex="-1" class="buttonLink"><button><i class="fa-brands fa-github"></i> GitHub</button></a>
+        <div class="info">Word count: <div id="wordCounter" style="display: inline-block;">0</div></div>
+        <div class="info">Character count: <div id="charCounter" style="display: inline-block;">0</div></div>
     </div>
 
+    <dialog id="fileModal">
+        <div class="wrapper" id="fileModalWrapper">
+            <h1>Files</h1>
+            <br>
+            Manage import and export of Markdown Files.
+            <br><br>
+
+            <textarea id="name" name="NameBox" class="name" rows="1" cols="40" placeholder="Document Name..."></textarea>
+            <button id="export" type="button">Export <i class="fa-brands fa-markdown"></i></button>
+            <button id="import" type="button">Import <i class="fa-brands fa-markdown"></i> <i class="fa-regular fa-file-lines"></i></button>
+            <input type="file" id="fileInput" accept=".md" style="display: none;">
+        </div>
+    </dialog>
+
     <dialog id="infoModal">
-        <div class="wrapper">
+        <div class="wrapper" id="infoModalWrapper">
 
             <h1>Function Documentation</h1>
             <br>
@@ -290,9 +303,6 @@
         <textarea id="editor" name="editor" class="editor" cols="70" onkeyup="countWords()" onpaste="countWords()" placeholder="Start Typing..."></textarea>
         <div id="render" class="render">Edit or import file to render...</div>
     </div>
-
-    <div class="info">Word count: <div id="wordCounter" style="display: inline-block;">0</div></div>
-    <div class="info">Character count: <div id="charCounter" style="display: inline-block;">0</div></div>
 
     <button onclick="topFunction()" id="topButton" title="Go to top"><i class="fa-solid fa-chevron-up"></i></button>
 
