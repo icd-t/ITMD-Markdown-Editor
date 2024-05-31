@@ -9,13 +9,12 @@ body {
 ::-moz-selection { /* Code for Firefox */
     color: #2E3440;
     background: #88C0D0;
-  }
+}
   
 ::selection {
     color: #2E3440;
     background: #88C0D0;
-    border-radius: 10px;
-  }
+}
 
 ::spelling-error {
     text-decoration: underline;
@@ -26,7 +25,7 @@ body {
 :focus-visible {
     outline: none;
     border-width: 2px;
-    border-color: #EBCB8B;
+    border-color: #88C0D0;
 }
 
 body::-webkit-scrollbar {
@@ -95,6 +94,9 @@ textarea::placeholder {
 
     display: inline-block;
     vertical-align: middle;
+
+    resize: none;
+    white-space: nowrap;
 }
 
 button{
